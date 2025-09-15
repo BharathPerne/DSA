@@ -2,11 +2,11 @@ class Solution {
 public:
 void solve(string str,string brokenLetters,int &result)
 {
-    for(int i=0;i<str.size();i++)
+    for(int i=0;i<brokenLetters.size();i++)
     {
-        for(int j=0;j<brokenLetters.size();j++)
+        for(int j=0;j<str.size();j++)
         {
-            if(str[i]==brokenLetters[j])
+            if(str[j]==brokenLetters[i])
             {
                 return;
             }
