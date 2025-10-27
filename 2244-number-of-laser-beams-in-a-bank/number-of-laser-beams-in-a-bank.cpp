@@ -7,10 +7,7 @@ public:
             int count=0;
             for(int j=0;j<bank[i].size();j++)
             {
-                if(bank[i][j]=='1')
-                {
-                    count++;
-                }
+                count+=bank[i][j]-'0';
             }
             if(!count)
             {
