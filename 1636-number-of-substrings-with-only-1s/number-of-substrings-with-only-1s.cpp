@@ -1,7 +1,7 @@
 class Solution {
 public:
     int numSub(string s) {
-        vector<long long> res={0};
+        long long ans=0;
         long long result=0;
         long long index=1;
         for(int i=0;i<s.size();i++)
@@ -13,17 +13,20 @@ public:
             }
             else
             {
-                result+=res[res.size()-1];
-                res.push_back(result);
+                // result+=res[res.size()-1];
+                // res.push_back(result);
+                ans+=result;
                 result=0;
                 index=1;
             }
         }
         if(s[s.size()-1]=='1')
         {
-            result+=res[res.size()-1];
-            res.push_back(result);
+            // result+=res[res.size()-1];
+            // res.push_back(result);
+            ans+=result;
         }
-        return res[res.size()-1];
+        // return res[res.size()-1];
+        return ans;
     }
 };
