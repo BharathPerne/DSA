@@ -1,15 +1,15 @@
 class Solution {
 public:
     int countPartitions(vector<int>& nums) {
-        int count=0;
+        bool flag=0;
         for(int i=0;i<nums.size();i++)
         {
             if(nums[i]%2!=0)
             {
-                count++;
+                flag=!flag;
             }
         }
-        if(count%2==0)
+        if(!flag)
         {
             return nums.size()-1;
         }
