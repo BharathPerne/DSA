@@ -8,13 +8,11 @@ public:
         // }
         // return count;
         
-        int size=columnTitle.size()-1;
-        int count=(columnTitle[0]-'A'+1)*pow(26,size);
-        size--;
-        for(int i=1;i<columnTitle.size();i++)
+        int count=0;
+        for(int i=0;i<columnTitle.size();i++)
         {
-            count+=(columnTitle[i]-'A'+1)*pow(26,size);
-            size--;
+            count+=(columnTitle[i]-'A'+1)*pow(26,columnTitle.size()-i-1);
+            
         }
         return count;
     }
