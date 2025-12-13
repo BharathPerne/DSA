@@ -90,9 +90,9 @@ bool isValid(string str)
         {
             if(isActive[i])
             {
-                if(isValid(code[i]))
+                if(businessLine[i]=="electronics"||businessLine[i]=="grocery"||businessLine[i]=="pharmacy"||businessLine[i]=="restaurant")
                 {
-                    if(businessLine[i]=="electronics"||businessLine[i]=="grocery"||businessLine[i]=="pharmacy"||businessLine[i]=="restaurant")
+                    if(isValid(code[i]))
                     {
                         categoryHeaps[businessLine[i]].push(code[i]);
                     }
