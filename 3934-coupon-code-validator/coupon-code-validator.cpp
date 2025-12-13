@@ -88,9 +88,9 @@ bool isValid(string str)
         map<string, priority_queue<string, vector<string>, greater<string>>> categoryHeaps;
         for(int i=0;i<code.size();i++)
         {
-            if(isValid(code[i]))
+            if(isActive[i])
             {
-                if(isActive[i])
+                if(isValid(code[i]))
                 {
                     if(businessLine[i]=="electronics"||businessLine[i]=="grocery"||businessLine[i]=="pharmacy"||businessLine[i]=="restaurant")
                     {
