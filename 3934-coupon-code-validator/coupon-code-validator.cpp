@@ -92,21 +92,9 @@ bool isValid(string str)
             {
                 if(isActive[i])
                 {
-                    if(businessLine[i]=="restaurant")
+                    if(businessLine[i]=="electronics"||businessLine[i]=="grocery"||businessLine[i]=="pharmacy"||businessLine[i]=="restaurant")
                     {
-                        categoryHeaps["restaurant"].push(code[i]);
-                    }
-                    else if(businessLine[i]=="grocery")
-                    {
-                        categoryHeaps["grocery"].push(code[i]);
-                    }
-                    else if(businessLine[i]=="pharmacy")
-                    {
-                        categoryHeaps["pharmacy"].push(code[i]);
-                    }
-                    else if(businessLine[i]=="electronics")
-                    {
-                        categoryHeaps["electronics"].push(code[i]);
+                        categoryHeaps[businessLine[i]].push(code[i]);
                     }
                 }
             }
