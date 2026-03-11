@@ -1,22 +1,19 @@
 class Solution {
 public:
     bool hasSameDigits(string s) {
-        while(true)
+        while(s.length() > 2)
         {
-            if(s.size()==2&&s[0]==s[1])
+            string str = "";
+            for(int i = 0; i < s.length() - 1; i++)
             {
-                return true;
+                // Add consecutive digits from left to right
+                int digit1 = s[i] - '0';
+                int digit2 = s[i + 1] - '0';
+                int sum = (digit1 + digit2) % 10;
+                str += to_string(sum);
             }
-            else if(s.size()==2&&s[0]!=s[1])
-            {
-                return false;
-            }
-            for(int i=1;i<s.size();i++)
-            {
-                int sum=(s[i-1]+s[i])%10;
-                s[i-1]=sum;
-            }
-            s.erase(s.size()-1);
+            s = str;  // Replace with new string
         }
+        return s[0] == s[1];
     }
 };
