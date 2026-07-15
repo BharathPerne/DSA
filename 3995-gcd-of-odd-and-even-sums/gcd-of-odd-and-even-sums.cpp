@@ -1,6 +1,7 @@
 class Solution {
 public:
     int gcdOfOddEvenSums(int n) {
+        return n;
         if(n==1){
             return 1;
         }
