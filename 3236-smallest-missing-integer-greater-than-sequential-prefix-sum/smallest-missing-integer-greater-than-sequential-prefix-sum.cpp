@@ -1,20 +1,21 @@
 class Solution {
 public:
     int missingInteger(vector<int>& nums) {
-        int sum = nums[0];
-
-        for (int i = 1; i < nums.size(); i++) {
-            if (nums[i] == nums[i - 1] + 1)
-                sum += nums[i];
-            else
+        int seq_number=nums[0];
+        map<int,int> num_count;
+        for(int i=1;i<nums.size();i++){
+            if(nums[i]==nums[i-1]+1){
+                seq_number+=nums[i];
+            }else{
                 break;
+            }
         }
-
-        unordered_set<int> s(nums.begin(), nums.end());
-
-        while (s.count(sum))
-            sum++;
-
-        return sum;
+        sort(nums.begin(),nums.end());
+        for(int i=0;i<nums.size();i++){
+            if(nums[i]==seq_number){
+                seq_number++;
+            }
+        }
+        return seq_number;
     }
 };
