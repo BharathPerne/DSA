@@ -1,26 +1,43 @@
 class Solution {
 public:
     string shortestBeautifulSubstring(string s, int k) {
-        int n = s.size();
+        int count = 0;
+        int left = 0;
         string ans = "";
-        for (int i = 0; i < n; i++) {
-            int ones = 0;
-            for (int j = i; j < n; j++) {
-                if (s[j] == '1') {
-                    ones++;
+
+        for (int right = 0; right < s.size(); right++) {
+
+            if (s[right] == '1') {
+                count++;
+            }
+
+            // We have more than k ones,
+            // so move left until we have k ones again.
+            while (count > k) {
+                if (s[left] == '1') {
+                    count--;
                 }
-                if (ones == k) {
-                    string cur = s.substr(i, j - i + 1);
-                    if (ans.empty() ||
-                        cur.size() < ans.size() ||
-                        (cur.size() == ans.size() && cur < ans)) {
-                        ans = cur;
-                    }
-                    // Extending further can only make it longer.
-                    break;
+                left++;
+            }
+
+            // Exactly k ones
+            if (count == k) {
+
+                // Remove unnecessary zeros from the left.
+                while (s[left] == '0') {
+                    left++;
+                }
+
+                string cur = s.substr(left, right - left + 1);
+
+                if (ans.empty() ||
+                    cur.size() < ans.size() ||
+                    (cur.size() == ans.size() && cur < ans)) {
+                    ans = cur;
                 }
             }
         }
+
         return ans;
     }
 };
