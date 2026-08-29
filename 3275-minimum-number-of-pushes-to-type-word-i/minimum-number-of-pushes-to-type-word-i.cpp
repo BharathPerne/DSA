@@ -1,11 +1,6 @@
 class Solution {
 public:
-    int minimumPushes(string word) {
-        int n = word.size();        
-         
-       int q = n / 8;
-       int r = n % 8;
-
-        return 8 * (q * (q + 1) / 2) + r * (q + 1);
+    int minimumPushes(string word) {        
+        return 8 * ((word.size() / 8) * ((word.size() / 8) + 1) / 2) +(word.size() % 8)* ((word.size() / 8) + 1);
     }
 };
