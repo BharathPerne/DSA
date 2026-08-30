@@ -20,12 +20,13 @@ public:
         min_ans=min(min_ans+1,(int)nums.size()-min_ans);
         max_ans=min(max_ans+1,(int)nums.size()-max_ans);
         int front_back=min_ans+max_ans;
-        if(front_back<front&&front_back<back){
-            return front_back;
-        }else if(front<back){
-            return front;
-        }else{
-            return back;
-        }
+        // if(front_back<front&&front_back<back){
+        //     return front_back;
+        // }else if(front<back){
+        //     return front;
+        // }else{
+        //     return back;
+        // }
+        return min({front,back,front_back});
     }
 };
