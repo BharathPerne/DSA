@@ -7,6 +7,7 @@ public:
         }
         string result = "";
         for (int i = 0; i < s.size(); i++) {
+            int index=i;
             if (s[i] == '(') {      
                 i++;      
                 string found_s = "";
@@ -15,15 +16,14 @@ public:
                     i++;                    
                 }
                 if (pairs.find(found_s) != pairs.end()) {
-                    result += pairs[found_s];
+                    s.replace(index,i-index+1,pairs[found_s]);
+                    i=index+(pairs[found_s].size()-1);
                 } else {
-                    result += '?';
-                }
-            }
-            else{
-                result += s[i];
-            }
+                    s.replace(index,i-index+1,"?");
+                    i=index;
+                }                
+            }            
         }
-        return result;
+        return s;
     }
 };
