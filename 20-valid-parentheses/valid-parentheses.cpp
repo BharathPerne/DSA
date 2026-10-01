@@ -9,13 +9,13 @@ public:
             if (s[i] == '(' || s[i] == '[' || s[i] == '{') {
                 st.push(s[i]);
             } else if (st.size()) {
-                if (s[i] == ')' && st.top() == '(') {
+               if((st.top() == '(' && s[i] == ')') ||
+                   (st.top() == '{' && s[i] == '}') ||
+                   (st.top() == '[' && s[i] == ']')) {
+
                     st.pop();
-                } else if (s[i] == ']' && st.top() == '[') {
-                    st.pop();
-                } else if (s[i] == '}' && st.top() == '{') {
-                    st.pop();
-                } else {
+                }
+                else {
                     return false;
                 }
             } else {
