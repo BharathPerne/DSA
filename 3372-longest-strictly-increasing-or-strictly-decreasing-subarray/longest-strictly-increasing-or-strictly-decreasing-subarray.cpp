@@ -4,8 +4,6 @@ public:
         if(nums.size()==1){
             return 1;
         }
-        vector<int> temp = nums;
-        sort(temp.begin(), temp.end());
         int result_inc = 1;
         int result_desc = 1;
         int ans = 0;
