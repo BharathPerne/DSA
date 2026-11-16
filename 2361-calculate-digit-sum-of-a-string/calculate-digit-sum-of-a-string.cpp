@@ -1,7 +1,6 @@
 class Solution {
 public:
     string digitSum(string s, int k) {
-        string temp = s;
         while (s.length() > k) {
             string result = "";
             int ans = 0;
@@ -13,10 +12,7 @@ public:
                 }
             }
             if (s.size() % k != 0)
-                result += to_string(ans);
-            // if (s != temp && s.size()==result.size()&& stoi(s) > stoi(result)) {
-            //     break;
-            // }
+                result += to_string(ans);          
             s = result;
         }
         return s;
